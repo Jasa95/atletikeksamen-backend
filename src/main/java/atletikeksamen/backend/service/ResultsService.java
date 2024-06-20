@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class ResultsService {
+
     @Autowired
     private final ParticipantRepository participantRepository;
     @Autowired
@@ -41,27 +42,16 @@ public class ResultsService {
         resultDTO.setResultValue(resultsEntity.getResultValue());
         resultDTO.setResultType(resultsEntity.getResultType());
         resultDTO.setDate(resultsEntity.getDate());
+        resultDTO.setDisciplineId(resultsEntity.getDiscipline().getId());
+        resultDTO.setParticipantId(resultsEntity.getParticipant().getId());
         return resultDTO;
-    }
-
-    private ResultDTO toDto(ResultsEntity entity) {
-        ResultDTO dto = new ResultDTO();
-        dto.setId(entity.getId());
-        dto.setDisciplineId(entity.getDiscipline().getId());
-        dto.setParticipantId(entity.getParticipant().getId());
-        dto.setDate(entity.getDate());
-        dto.setResultType(entity.getResultType());
-        dto.setResultValue(entity.getResultValue());
-        return dto;
     }
 
     private ResultsEntity toEntity(ResultDTO dto) {
         ResultsEntity entity = new ResultsEntity();
         entity.setId(dto.getId());
-        entity.setDiscipline(disciplineRepository.findById(dto.getDisciplineId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Discipline not found")));
-        entity.setParticipant(participantRepository.findById(dto.getParticipantId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Participant not found")));
+        entity.setDiscipline(disciplineRepository.findById(dto.getDisciplineId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Discipline not found")));
+        entity.setParticipant(participantRepository.findById(dto.getParticipantId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Participant not found")));
         entity.setDate(dto.getDate());
         entity.setResultType(dto.getResultType());
         entity.setResultValue(dto.getResultValue());
@@ -91,5 +81,14 @@ public class ResultsService {
         return results.stream().map(this::toDto).collect(Collectors.toList());
     }
 
-
+    private ResultDTO toDto(ResultsEntity entity) {
+        ResultDTO dto = new ResultDTO();
+        dto.setId(entity.getId());
+        dto.setDisciplineId(entity.getDiscipline().getId());
+        dto.setParticipantId(entity.getParticipant().getId());
+        dto.setDate(entity.getDate());
+        dto.setResultType(entity.getResultType());
+        dto.setResultValue(entity.getResultValue());
+        return dto;
+    }
 }
