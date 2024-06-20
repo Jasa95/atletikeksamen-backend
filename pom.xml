@@ -8,11 +8,11 @@
         <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>template</groupId>
-    <artifactId>spring-backend-template</artifactId>
+    <groupId>eksamenatletik</groupId>
+    <artifactId>spring-backend-atletikeksamen-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-backend-template</name>
-    <description>spring-backend-template</description>
+    <name>spring-backend-eksamenatletik</name>
+    <description>spring-backend-eksamenatletik</description>
     <properties>
         <java.version>17</java.version>
     </properties>
