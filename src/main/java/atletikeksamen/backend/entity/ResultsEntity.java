@@ -1,4 +1,4 @@
-package template.springbackendtemplate.entity;
+package atletikeksamen.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -17,14 +18,22 @@ import java.util.List;
 @AllArgsConstructor
 // håndtere bi-direktionelle relationer på er ved at bruge @JsonIdentityInfo, som vil bruge ID'er til at undgå uendelige løkker
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class ParticipantEntity {
+public class ResultsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String gender;
-    private Integer age;
-    private String club;
-    @ManyToMany(mappedBy = "participants")
-    private List<DisciplineEntity> disciplines;
+    private String resultType;
+    private Date date;
+    private String resultValue;
+
+
+
+
+    @ManyToOne
+    @JoinColumn(name = "participant_id", nullable = false)
+    private ParticipantEntity participant;
+    @ManyToOne
+    @JoinColumn(name = "discipline_id", nullable = false)
+    private DisciplineEntity discipline;
+
 }

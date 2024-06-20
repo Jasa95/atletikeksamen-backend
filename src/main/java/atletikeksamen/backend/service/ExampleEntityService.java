@@ -1,10 +1,10 @@
-package template.springbackendtemplate.service;
+package atletikeksamen.backend.service;
 
+/*import atletikeksamen.backend.entity.ExampleEntity;
+import atletikeksamen.backend.repository.ExampleEntityRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import template.springbackendtemplate.entity.ExampleEntity;
-import template.springbackendtemplate.repository.ExampleEntityRepository;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class ExampleEntityService {
         Du kan lave metoder som henter data fra databasen
         Du kan lave metoder som sletter data fra databasen
         Du kan lave metoder som opdaterer data i databasen
-         */
+         *//*
 
 
         // Metode som henter alle entities fra databasen
@@ -55,6 +55,5 @@ public class ExampleEntityService {
             return exampleEntityRepository.save(entity);
         }
 
-
-
 }
+*/

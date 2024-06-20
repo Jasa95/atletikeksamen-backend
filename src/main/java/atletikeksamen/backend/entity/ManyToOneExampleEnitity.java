@@ -1,4 +1,5 @@
-package template.springbackendtemplate.entity;
+/*
+package atletikeksamen.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
@@ -27,3 +28,4 @@ public class ManyToOneExampleEnitity {
     @JsonBackReference
     private ExampleEntity exampleEntity;
 }
+*/

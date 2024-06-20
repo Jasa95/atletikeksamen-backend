@@ -1,10 +1,10 @@
-package template.springbackendtemplate.dto;
+/*package atletikeksamen.backend.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import template.springbackendtemplate.entity.ExampleEntity;
+import atletikeksamen.backend.entity.ExampleEntity;
 
 @Getter
 @Setter
@@ -23,3 +23,4 @@ public class ExampleEntityDto {
         // flere variabler kan indsættes her
     }
 }
+*/

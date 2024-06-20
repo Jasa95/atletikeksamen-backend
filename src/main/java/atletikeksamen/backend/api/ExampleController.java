@@ -1,8 +1,8 @@
-package template.springbackendtemplate.api;
+/*package atletikeksamen.backend.api;
 
+import atletikeksamen.backend.entity.ExampleEntity;
+import atletikeksamen.backend.service.ExampleEntityService;
 import org.springframework.web.bind.annotation.*;
-import template.springbackendtemplate.entity.ExampleEntity;
-import template.springbackendtemplate.service.ExampleEntityService;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class ExampleController {
     Du kan lave metoder som sletter data fra service klassen
     Du kan lave metoder som opdaterer data i service klassen
      */
-
+/*
     // Metode som henter alle entities fra service klassen
     @GetMapping
     public List<ExampleEntity> getAllExampleEntities() {
@@ -54,3 +54,4 @@ public class ExampleController {
         return exampleEntityService.updateExampleEntity(id, exampleEntity);
     }
 }
+*/

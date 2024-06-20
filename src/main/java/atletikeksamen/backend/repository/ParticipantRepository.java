@@ -1,7 +1,10 @@
-package template.springbackendtemplate.repository;
+package atletikeksamen.backend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import template.springbackendtemplate.entity.ParticipantEntity;
+import atletikeksamen.backend.entity.ParticipantEntity;
+
+import java.util.List;
+
 
 public interface ParticipantRepository extends JpaRepository<ParticipantEntity, Integer> {
 }

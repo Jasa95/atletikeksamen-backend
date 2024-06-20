@@ -1,6 +1,5 @@
-package template.springbackendtemplate.entity;
+/*package atletikeksamen.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,9 +28,10 @@ public class ExampleEntity {
     mappedby angiver hvilken property ManyToOneExampleEntity'en har, som er forbundet til denne entity
     i dette tilfælde er det "exampleEntity" property'en fra ManyToOneExampleEntity
     Det er omvendt af ManyToOne, så der kan være mange refences til denne entity
-    */
+    *//*
     @OneToMany(mappedBy = "exampleEntity")
     @JsonManagedReference
     private List<ManyToOneExampleEnitity> manyToOneExampleEnitities;
 
 }
+*/
