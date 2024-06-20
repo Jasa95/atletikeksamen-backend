@@ -28,6 +28,22 @@ public class ResultsService {
         this.resultsRepository = resultsRepository;
     }
 
+    public List<ResultDTO> getAllResults() {
+        List<ResultsEntity> resultsEntities = resultsRepository.findAll();
+        return resultsEntities.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    private ResultDTO convertToDTO(ResultsEntity resultsEntity) {
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setId(resultsEntity.getId());
+        resultDTO.setParticipantName(resultsEntity.getParticipant().getName());
+        resultDTO.setDisciplineName(resultsEntity.getDiscipline().getName());
+        resultDTO.setResultValue(resultsEntity.getResultValue());
+        resultDTO.setResultType(resultsEntity.getResultType());
+        resultDTO.setDate(resultsEntity.getDate());
+        return resultDTO;
+    }
+
     private ResultDTO toDto(ResultsEntity entity) {
         ResultDTO dto = new ResultDTO();
         dto.setId(entity.getId());
@@ -42,8 +58,10 @@ public class ResultsService {
     private ResultsEntity toEntity(ResultDTO dto) {
         ResultsEntity entity = new ResultsEntity();
         entity.setId(dto.getId());
-        entity.setDiscipline(disciplineRepository.findById(dto.getDisciplineId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Discipline not found")));
-        entity.setParticipant(participantRepository.findById(dto.getParticipantId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Participant not found")));
+        entity.setDiscipline(disciplineRepository.findById(dto.getDisciplineId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Discipline not found")));
+        entity.setParticipant(participantRepository.findById(dto.getParticipantId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Participant not found")));
         entity.setDate(dto.getDate());
         entity.setResultType(dto.getResultType());
         entity.setResultValue(dto.getResultValue());
@@ -72,4 +90,6 @@ public class ResultsService {
         List<ResultsEntity> results = resultsRepository.findByDisciplineId(disciplineId);
         return results.stream().map(this::toDto).collect(Collectors.toList());
     }
+
+
 }

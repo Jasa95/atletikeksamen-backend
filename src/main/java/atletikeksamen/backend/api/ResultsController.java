@@ -1,11 +1,8 @@
 package atletikeksamen.backend.api;
 
 import atletikeksamen.backend.dto.ResultDTO;
-import atletikeksamen.backend.entity.ResultsEntity;
 import atletikeksamen.backend.service.ResultsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,30 +10,32 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/results")
 public class ResultsController {
+
     @Autowired
-    private ResultsService resultService;
+    private ResultsService resultsService;
+
+    @GetMapping
+    public List<ResultDTO> getAllResults() {
+        return resultsService.getAllResults();
+    }
 
     @PostMapping
-    public ResponseEntity<ResultDTO> createResult(@RequestBody ResultDTO resultDTO) {
-        ResultDTO createdResult = resultService.createResult(resultDTO);
-        return new ResponseEntity<>(createdResult, HttpStatus.CREATED);
+    public ResultDTO createResult(@RequestBody ResultDTO resultDTO) {
+        return resultsService.createResult(resultDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ResultDTO> updateResult(@PathVariable Integer id, @RequestBody ResultDTO resultDTO) {
-        ResultDTO updatedResult = resultService.updateResult(id, resultDTO);
-        return new ResponseEntity<>(updatedResult, HttpStatus.OK);
+    public ResultDTO updateResult(@PathVariable Integer id, @RequestBody ResultDTO resultDTO) {
+        return resultsService.updateResult(id, resultDTO);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteResult(@PathVariable Integer id) {
-        resultService.deleteResult(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public void deleteResult(@PathVariable Integer id) {
+        resultsService.deleteResult(id);
     }
 
     @GetMapping("/discipline/{disciplineId}")
-    public ResponseEntity<List<ResultDTO>> getResultsByDiscipline(@PathVariable Integer disciplineId) {
-        List<ResultDTO> results = resultService.getResultsByDiscipline(disciplineId);
-        return new ResponseEntity<>(results, HttpStatus.OK);
+    public List<ResultDTO> getResultsByDiscipline(@PathVariable Integer disciplineId) {
+        return resultsService.getResultsByDiscipline(disciplineId);
     }
 }

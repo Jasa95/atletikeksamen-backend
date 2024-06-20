@@ -11,7 +11,9 @@ public class ResultDTO {
     private Integer id;
     private Integer disciplineId;
     private Integer participantId;
-    private Date date;
-    private String resultType;
+    private String participantName;
+    private String disciplineName;
     private String resultValue;
+    private String resultType;
+    private Date date;
 }
