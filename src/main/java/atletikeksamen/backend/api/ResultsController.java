@@ -33,9 +33,4 @@ public class ResultsController {
     public void deleteResult(@PathVariable Integer id) {
         resultsService.deleteResult(id);
     }
-
-    @GetMapping("/discipline/{disciplineId}")
-    public List<ResultDTO> getResultsByDiscipline(@PathVariable Integer disciplineId) {
-        return resultsService.getResultsByDiscipline(disciplineId);
-    }
 }

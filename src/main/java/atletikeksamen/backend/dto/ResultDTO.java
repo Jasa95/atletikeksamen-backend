@@ -9,8 +9,8 @@ import java.util.Date;
 @Setter
 public class ResultDTO {
     private Integer id;
-    private Integer disciplineId;
     private Integer participantId;
+    private Integer disciplineId;
     private String participantName;
     private String disciplineName;
     private String resultValue;

@@ -3,6 +3,7 @@ package atletikeksamen.backend.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -13,5 +14,5 @@ public class ParticipantDTO {
     private int age;
     private String gender;
     private String club;
-    private List<String> disciplineNames;
+    private List<String> disciplineNames = new ArrayList<>();
 }
