@@ -1,7 +1,6 @@
 package atletikeksamen.backend.api;
 
 import atletikeksamen.backend.dto.DisciplineDTO;
-import atletikeksamen.backend.entity.DisciplineEntity;
 import atletikeksamen.backend.service.DisciplineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

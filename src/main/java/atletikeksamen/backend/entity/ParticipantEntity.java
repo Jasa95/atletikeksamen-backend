@@ -37,6 +37,10 @@ public class ParticipantEntity {
     @JsonManagedReference
     private List<DisciplineEntity> disciplines = new ArrayList<>();
 
+    @OneToMany(mappedBy = "participant", cascade = CascadeType.REMOVE)
+    private List<ResultsEntity> results = new ArrayList<>();
+
+
     public void addDiscipline(DisciplineEntity discipline) {
         this.disciplines.add(discipline);
     }
